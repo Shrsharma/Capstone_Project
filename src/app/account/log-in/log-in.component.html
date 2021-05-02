@@ -1,0 +1,28 @@
+<div class="log" >
+    <img src="https://www.boardeffect.com/wp-content/uploads/2019/06/The-Role-of-Governance-in-Healthcare.jpg">
+
+    <form class="log-form" [formGroup]="loginForm" (ngSubmit)="handleLogInSubmit()">
+        <br>
+        <br>
+        <h3 style="font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; color: whitesmoke;"> Log-In Form </h3>
+        <hr style="width:20%; margin-left:40%; border-width: 3px; border-color: whitesmoke;">
+        <label>
+            <h5>Email:</h5>
+            <input type="email"  formControlName="email" placeholder="   email">
+            <br>
+            <span *ngIf="formSubmit && formControl.email.errors">Valid Email is required</span>
+        </label>
+        <br>
+        <label>
+            <h5>Password:</h5>
+            <input type="password" formControlName="password" placeholder="   password" >
+            <br>
+            <span *ngIf="formSubmit && formControl.password.errors">Valid Password is required</span>
+        </label>
+        <br>
+        <label>
+            <button type="submit" name="submit">Log-In</button>
+        </label>
+        <br><br>
+    </form>
+</div>
