@@ -1,0 +1,15 @@
+.carousel-slide
+{
+    position: relative;
+    transition: .8s ease-in-out;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+
+.card-deck .card img{
+    width: 444px;
+    height: 250px;
+}

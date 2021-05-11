@@ -1,0 +1,24 @@
+<div class="container jumbotron">
+    <h3>Your Cart</h3>
+    <br>
+    <div class="row">
+        <div class="col col-md-3">
+            <h5>Items in Cart</h5>
+            <div *ngFor="let i of itemlist">
+                <p>{{i}}</p>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <h5>Cost</h5>
+            <div *ngFor="let i of pricelist">
+                <p>{{i}}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h5>Total Cost</h5><span *ngIf="cost">{{cost}}</span>
+    <div>
+        <button class="btn btn-primary" (click)="placeOrder()">Place Your Order</button>
+    </div>
+</div>
+

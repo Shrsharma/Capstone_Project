@@ -1,1 +1,103 @@
-<p>admin-page works!</p>
+<div class="jumbotron">
+    
+    <div class="row">
+        <div class="col col-md-4">
+            <h3>Admin Dashboard</h3> 
+            <button class="btn btn-primary" (click)="btnClick()">Categories</button> | 
+            <button class="btn btn-primary" (click)="btnClick1()">User-Info</button> |
+            <button class="btn btn-primary" (click)="gotoLogout()">Logout</button>
+        </div>
+        <div class="col col-md-8">
+                <h4>Medicine Form</h4>
+                <p>Add New Medicine Details Here!!</p>
+                <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+                    <input type="hidden" name="id" [value]="medservice.medForm.id" />
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="Id" name="id" 
+                        #id="ngModel" [(ngModel)]="medservice.medForm.id" required>
+                        <span style="color: red;" *ngIf="(id.invalid  &&  form.touched)"> Id is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Medicine Name</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="Name" name="medicineName" 
+                        #medicineName="ngModel" [(ngModel)]="medservice.medForm.medicineName" required>
+                        <span style="color: red;" *ngIf="(medicineName.invalid  &&  form.touched)"> Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="price" name="price" 
+                        #price="ngModel" [(ngModel)]="medservice.medForm.price" required>
+                        <span style="color: red;" *ngIf="(medicineName.invalid  &&  form.touched)"> Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="url" name="imgUrl" 
+                        #imgUrl="ngModel" [(ngModel)]="medservice.medForm.imgUrl" required>
+                        <span style="color: red;" *ngIf="(medicineName.invalid  &&  form.touched)"> Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="description" name="description" 
+                        #description="ngModel" [(ngModel)]="medservice.medForm.description" required> 
+                        <span style="color: red;" *ngIf="(description.invalid  &&  form.touched)"> Description is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Expiration</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="expiration" name="expiration" 
+                        #expiration="ngModel" [(ngModel)]="medservice.medForm.expiration" required>
+                        <span style="color: red;" *ngIf="(expiration.invalid  &&  form.touched)"> Expiration is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input class="form-control form-control-md col-md-11" placeholder="category" name="category" 
+                        #category="ngModel" [(ngModel)]="medservice.medForm.category" required>
+                        <span style="color: red;" *ngIf="(category.invalid  &&  form.touched)"> Category is required</span>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+    
+</div>
+<br>
+<br>
+<div>
+    <h4>Medicine List Details</h4>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Id<br></th>
+                <th>Medicine Name<br> </th>
+                <th>Price<br></th>
+                <th>Description<br></th>
+                <th>Image<br></th>
+                <th>Expiration<br></th>
+                <th (click)="sort('category')" style="cursor: pointer;"> Category&nbsp;<i class="fa fa-sort"></i></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pd of medservice.list | orderBy: key : reverse">
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.id}}</td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.medicineName}}</td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.price}}</td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.description}}</td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;"><img style="height: 100px;width: 100px;" src="{{pd.imgUrl}}"></td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.expiration}}</td>
+                <td (click)="fillForm(pd)" style="cursor: pointer;">{{pd.category}}</td>
+                
+                <td>
+                    <p (click)="onDelete(pd.id)" style="cursor: pointer;">&nbsp;<i class="fa fa-trash fa-lg text-danger "></i></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br><br>
+
+

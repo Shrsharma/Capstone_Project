@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first-page',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  gotoRegister()
+  {
+    this.route.navigate(["Register"]);
+  }
+
+  gotoLogin()
+  {
+    if(sessionStorage.getItem('token') != null)
+    {
+      alert("Already Logged in");
+    }
+    else{
+      this.route.navigate(["Login"]);
+    }
+  }
 }

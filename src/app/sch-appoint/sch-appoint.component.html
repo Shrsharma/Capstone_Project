@@ -1,0 +1,39 @@
+<div class="cntct">
+    <div class="container jumbotron" style="margin-bottom: 30px;margin-top: 30px;"> 
+        
+        <h3 style="font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 36px;"> Appointment Form </h3>
+        <hr style="width:20%; margin-left:40%; border-width: 3px; ">
+        <br>
+        <form >
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label>Fullname</label>
+                <input type="text" class="form-control" placeholder="Fullname">
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <div class="row ">
+                    <div class="col col-sm-1">
+                        <input type="text" class="form-control" placeholder="DD">
+                    </div> /
+                    <div class="col col-sm-1">
+                        <input type="text" class="form-control" placeholder="MM">
+                    </div> /
+                    <div class="col col-sm-1">
+                        <input type="text" class="form-control" placeholder="YYYY">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <label>Remarks </label>
+                <textarea type="text" class="form-control" placeholder="Subject" style="height: 250px;"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" (click)="subAppoint()">Submit</button>
+        </form>
+    </div>
+</div>
+

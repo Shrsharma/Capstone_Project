@@ -1,0 +1,39 @@
+<div class="sg">
+    <img style="width: 100%;height: 800px;" src="https://www.buehlermotor.com/fileadmin/templates/website/media/images/final/Produkte_und_Maerkte/Healthcare/buehler_motor_healthcare_header.jpg">
+    <div class="container " style="margin-top: 30px;">
+        <br><br>
+        <h3 style="font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; color: whitesmoke; font-size: 36px;"> Register Form </h3>
+        <hr style="width:20%; margin-left:40%; border-width: 3px; border-color: whitesmoke;">
+        <br>
+        <form [formGroup]="authser.regform" (ngSubmit)="handleRegister()">
+            <div class="form-group">
+                <label style="color: whitesmoke;">Full Name</label>
+                <input type="text" class="form-control" formControlName="fullname" placeholder="fullname">
+                <span *ngIf="formSubmit && formControl.fullname.errors" style="color: red;">Valid Full Name required</span>
+            </div>
+            <div class="form-group">
+                <label style="color: whitesmoke;">User Name</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="username">
+                <span *ngIf="formSubmit && formControl.username.errors" style="color: red;">Valid User Name required</span>
+            </div>
+            <div class="form-group">
+                <label style="color: whitesmoke;">Phone Number</label>
+                <input type="text" class="form-control" formControlName="phonenumber" placeholder="phonenumber">
+                <span *ngIf="formSubmit && formControl.phonenumber.errors" style="color: red;">Valid Phone Number required</span>
+            </div>
+            <div class="form-group">
+                <label style="color: whitesmoke;">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="email">
+                <span *ngIf="formSubmit && formControl.email.errors" style="color: red;">Valid Email required</span>
+            </div>
+            <div class="form-group">
+                <label style="color: whitesmoke;">Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="password">
+                <span *ngIf="formSubmit && formControl.password.errors" style="color: red;">Password of min length 6 is required and must contain lowercase alphabets and digits</span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn" style="color: whitesmoke;">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
